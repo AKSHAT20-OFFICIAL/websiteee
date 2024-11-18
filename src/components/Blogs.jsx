@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const BlogPage = () => {
   return (
-    <div className="bg-dark-navy min-h-screen py-10 px-4">
+    <div className="bg-gradient-to-r from-dark-navy  to-light-navy min-h-screen py-10 px-4">
       <div className="max-w-7xl mx-auto">
         <Link to="/">
           <h1 className="text-gold text-4xl font-bold text-center mb-8">
