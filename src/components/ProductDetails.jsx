@@ -84,8 +84,8 @@
 // };
 
 // export default ProductDetails;
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const ProductDetails = ({ product }) => {
   const [showFeatures, setShowFeatures] = useState(false);
@@ -112,8 +112,7 @@ const ProductDetails = ({ product }) => {
       className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center w-full max-w-5xl mx-auto p-4"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-    >
+      transition={{ duration: 0.8 }}>
       {/* Carousel Section */}
       <div className="relative w-full h-60 sm:h-80 md:h-full">
         <motion.img
@@ -127,14 +126,12 @@ const ProductDetails = ({ product }) => {
         />
         <button
           onClick={handlePrevImage}
-          className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-dark-navy text-white p-2 rounded-full text-xs sm:text-base"
-        >
+          className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-dark-navy text-white p-2 rounded-full text-xs sm:text-base">
           ❮
         </button>
         <button
           onClick={handleNextImage}
-          className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-dark-navy text-white p-2 rounded-full text-xs sm:text-base"
-        >
+          className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-dark-navy text-white p-2 rounded-full text-xs sm:text-base">
           ❯
         </button>
       </div>
@@ -145,22 +142,22 @@ const ProductDetails = ({ product }) => {
           className="mb-2"
           initial={{ scale: 1 }}
           animate={{ scale: showFeatures ? 0.8 : 1 }}
-          transition={{ duration: 0.3 }}
-        >
+          transition={{ duration: 0.3 }}>
           <h1
-            className={`text-dark-grey font-bold mb-1 transition-all ${
-              showFeatures ? 'text-xl md:text-2xl' : 'text-3xl md:text-4xl'
-            }`}
-          >
-            {product.name} <span className="text-sm md:text-lg text-accent">#{product.serial}</span>
+            className={`text-white font-bold mb-1 transition-all ${
+              showFeatures ? "text-xl md:text-2xl" : "text-3xl md:text-4xl"
+            }`}>
+            {product.name}{" "}
+            <span className="text-sm md:text-lg text-accent">
+              #{product.serial}
+            </span>
           </h1>
           {!showFeatures && (
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5 }}
-              className="text-sm md:text-base"
-            >
+              className="text-sm md:text-base text-white">
               {product.description}
             </motion.p>
           )}
@@ -172,8 +169,7 @@ const ProductDetails = ({ product }) => {
             onClick={toggleFeatures}
             className="bg-accent text-dark-navy px-3 py-1 md:px-4 md:py-2 rounded mt-4"
             whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
+            whileTap={{ scale: 0.95 }}>
             View Features
           </motion.button>
         ) : (
@@ -182,19 +178,30 @@ const ProductDetails = ({ product }) => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+            transition={{ duration: 0.5 }}>
             <button
               onClick={toggleFeatures}
-              className="text-xs mb-4 text-right block"
-            >
+              className="text-xs mb-4 text-right block">
               Back
             </button>
-            <ul className="space-y-3">
+            <ul
+              className={`space-y-3 ${
+                product.features.length > 3
+                  ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+                  : ""
+              }`}>
               {product.features.map((feature, index) => (
-                <li key={index} className="border-b border-light-grey pb-2">
-                  <h4 className="text-base md:text-lg font-semibold">{feature.name}</h4>
-                  <p className="text-xs md:text-sm text-light-grey">{feature.description}</p>
+                <li
+                  key={index}
+                  className={`border-b border-light-grey pb-2 ${
+                    product.features.length > 3 ? "col-span-1" : ""
+                  }`}>
+                  <h4 className="text-base md:text-lg font-semibold">
+                    {feature.name}
+                  </h4>
+                  <p className="text-xs md:text-sm text-light-grey">
+                    {feature.description}
+                  </p>
                 </li>
               ))}
             </ul>

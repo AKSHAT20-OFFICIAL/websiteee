@@ -1,0 +1,21 @@
+[
+    {
+      "title": "Exploring the Depths of AI",
+      "description": "Dive into the fascinating world of artificial intelligence and its impact on our lives.",
+      "image": "/images/blog1.jpg",
+      "url": "/blog/exploring-the-depths-of-ai"
+    },
+    {
+      "title": "The Future of Renewable Energy",
+      "description": "Discover the latest trends and innovations in renewable energy technologies.",
+      "image": "/images/blog2.jpg",
+      "url": "/blog/future-of-renewable-energy"
+    },
+    {
+      "title": "Space Exploration in 2024",
+      "description": "A detailed look into the missions and advancements in space exploration this year.",
+      "image": "/images/blog3.jpg",
+      "url": "/blog/space-exploration-2024"
+    }
+  ]
+  
