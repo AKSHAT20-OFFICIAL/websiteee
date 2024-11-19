@@ -3,19 +3,41 @@
       "title": "Exploring the Depths of AI",
       "description": "Dive into the fascinating world of artificial intelligence and its impact on our lives.",
       "image": "/images/blog1.jpg",
-      "url": "/blog/exploring-the-depths-of-ai"
+      "url": "/blog/exploring-the-depths-of-ai",
+      "tags":["$trendy","happy","ask"],
+      "date":"24-05-2024"
     },
     {
       "title": "The Future of Renewable Energy",
       "description": "Discover the latest trends and innovations in renewable energy technologies.",
       "image": "/images/blog2.jpg",
-      "url": "/blog/future-of-renewable-energy"
+      "url": "/blog/future-of-renewable-energy",
+      "tags":["$trendy","happy"],
+      "date":"24-05-2023"
     },
     {
       "title": "Space Exploration in 2024",
       "description": "A detailed look into the missions and advancements in space exploration this year.",
       "image": "/images/blog3.jpg",
-      "url": "/blog/space-exploration-2024"
+      "url": "/blog/space-exploration-2024",
+      "tags":["$trendy","happy"],
+      "date":"24-05-2022"
+    },
+    {
+      "title": "Space Exploration in 2024",
+      "description": "A detailed look into the missions and advancements in space exploration this year.",
+      "image": "/images/blog3.jpg",
+      "url": "/blog/space-exploration-2024",
+      "tags":["$trendy","happy"],
+      "date":"24-05-2022"
+    },
+    {
+      "title": "Space Exploration in 2024",
+      "description": "A detailed look into the missions and advancements in space exploration this year.",
+      "image": "/images/blog3.jpg",
+      "url": "/blog/space-exploration-2024",
+      "tags":["$trendy","happy"],
+      "date":"24-05-2022"
     }
   ]
   

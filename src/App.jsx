@@ -6,6 +6,7 @@ import ProductShowcase from './components/ProductShowcase';
 import AboutUs from './components/AboutUs';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import HomeBlogSection from './components/BlogHome';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Hero />
       <ProductShowcase />
       <AboutUs />
+      <HomeBlogSection/>
       {/* <Contact /> */}
       <Footer />
       

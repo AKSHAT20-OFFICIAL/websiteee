@@ -84,7 +84,7 @@
 // };
 
 // export default ProductDetails;
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const ProductDetails = ({ product }) => {
@@ -95,17 +95,26 @@ const ProductDetails = ({ product }) => {
     setShowFeatures((prev) => !prev);
   };
 
+  const handlePrevImage = () => {
+    setActiveImageIndex((prevIndex) =>
+      prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
+    );
+  };
+
   const handleNextImage = () => {
     setActiveImageIndex((prevIndex) =>
       prevIndex === product.images.length - 1 ? 0 : prevIndex + 1
     );
   };
 
-  const handlePrevImage = () => {
-    setActiveImageIndex((prevIndex) =>
-      prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
-    );
-  };
+  // Automatic carousel interval
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNextImage();
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval); // Clear interval on component unmount
+  }, [activeImageIndex]); // Dependency ensures smooth cycling
 
   return (
     <motion.div
@@ -115,27 +124,30 @@ const ProductDetails = ({ product }) => {
       transition={{ duration: 0.8 }}>
       {/* Carousel Section */}
       <div className="relative w-full h-60 sm:h-80 md:h-full">
-        <motion.img
-          key={activeImageIndex}
-          src={product.images[activeImageIndex]}
-          alt={`${product.name} image ${activeImageIndex + 1}`}
-          className="w-full h-full object-cover rounded-lg"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        />
-        <button
-          onClick={handlePrevImage}
-          className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-dark-navy text-white p-2 rounded-full text-xs sm:text-base">
-          ❮
-        </button>
-        <button
-          onClick={handleNextImage}
-          className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-dark-navy text-white p-2 rounded-full text-xs sm:text-base">
-          ❯
-        </button>
-      </div>
-
+      <motion.img
+        key={activeImageIndex}
+        src={product.images[activeImageIndex]}
+        alt={`${product.name} image ${activeImageIndex + 1}`}
+        className="w-full h-full object-cover rounded-lg"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      />
+      {/* Previous Button */}
+      <button
+        onClick={handlePrevImage}
+        className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-dark-navy text-white p-2 rounded-full text-xs sm:text-base"
+      >
+        ❮
+      </button>
+      {/* Next Button */}
+      <button
+        onClick={handleNextImage}
+        className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-dark-navy text-white p-2 rounded-full text-xs sm:text-base"
+      >
+        ❯
+      </button>
+    </div>
       {/* Product Details */}
       <div className="text-center md:text-left mt-4 md:mt-0">
         <motion.div
